@@ -3,28 +3,47 @@
     "patterns": [{ "include": "#expression" }],
     "repository": {
       "expression": {
-        "patterns": [
-            { "include": "#boxname" },
-            { "include": "#line-devider" },
-            { "include": "#object-param" },
-            { "include": "#object-param-substitution" },
-            { "include": "#object-param-function" }
+        "patterns": [     
+            { "include": "#rule-for-special-boxes" },     
+            { "include": "#just-boxes" },
+            { "include": "#line-devider" },      
+            { "include": "#object-param-substitution"}
         ]
       },
-      "boxname": {
-        "match": "ХРАНИЛИЩЕ_ОБЪЕКТОВ|ШАБЛОННЫЙ_ВИД|РЕШЕНИЕ|СЛУЖЕБНОЕ|ТЕСТОВЫЕ_ДАННЫЕ",
+      "just-boxes": {
+        "match": "ШАБЛОННЫЙ_ВИД|РЕШЕНИЕ",
         "name": "markup.bold"
       },
       "line-devider": {
         "match": "-----*\n",
         "name": "markup.bold"
       },
+      "rule-for-special-boxes": {
+        "begin": "ХРАНИЛИЩЕ_ОБЪЕКТОВ|СЛУЖЕБНОЕ|ТЕСТОВЫЕ_ДАННЫЕ\n",
+        "end": "-----*\n",
+        "beginCaptures": {
+          "0": { "name": "markup.bold" }
+        },
+        "endCaptures": {
+          "0": { "name": "markup.bold" }
+        },
+        "contentName": "expression.group",
+        "patterns" : [
+          { "include": "#object-param-function" },
+          { "include": "#comma"},
+          { "include": "#object-param" }
+        ]
+      },
+      "comma": {
+        "match": "(?<!\\\\)[,|;]",
+        "name": "markup.bold"
+      },
       "object-param": {
-        "match": "[а-я|А-Я|a-z|A-Z|0-9|_]+[ ]*:",
+        "match": "[а-яА-Яa-zA-Z0-9_]+[ ]*:",
         "name": "entity.name.type"
       },
       "object-param-substitution": {
-        "match": "@[а-я|А-Я|a-z|A-Z|0-9|_|@]+@",
+        "match": "@[а-яА-Яa-zA-Z0-9_@]+@",
         "name": "markup.italic"
       },
       "object-param-function": {
