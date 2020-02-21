@@ -14,6 +14,10 @@
         "match": "ШАБЛОННЫЙ_ВИД|РЕШЕНИЕ",
         "name": "markup.bold"
       },
+      "types": {
+        "match": "int|double",
+        "name": "entity.name.type"
+      },
       "line-devider": {
         "match": "-----*\n",
         "name": "markup.bold"
@@ -46,9 +50,25 @@
         "match": "@[а-яА-Яa-zA-Z0-9_@]+@",
         "name": "markup.italic"
       },
+      "parentheses": {
+        "begin": "\\(",
+        "end": "\\)",
+        "name": "entity.name.function",
+        "patterns": [
+          { "include": "#parentheses" },          
+          { "include": "#types" },
+          { "include": "#object-param-substitution" }
+        ]
+      },
       "object-param-function": {
-        "match": "(#rnd|#genAE|#getAEcode|#lua)\\(.*\\)",
-        "name": "entity.name.function"
+        "begin": "(#rnd|#genAE|#getAEcode|#lua)\\(",
+        "end": "\\)",
+        "name": "entity.name.function",
+        "patterns": [
+          { "include": "#parentheses" },          
+          { "include": "#types" },
+          { "include": "#object-param-substitution" }
+        ]
       }
     }
   }
