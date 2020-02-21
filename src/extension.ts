@@ -11,10 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
 		let doc = vscode.window.activeTextEditor?.document;
 		if (doc && doc.languageId == "gentemp")
 		{
-			let path = (vscode.window.activeTextEditor?.document.uri.path ?? "").replace('/', '\\');
-			path = path.substr(1, path.length-1);
+			let path = (vscode.window.activeTextEditor?.document.uri.path ?? "");
+			if (path.length > 0 ) path = path.substr(1, path.length-1);
 			//vscode.window.showInformationMessage(path);
-			await exec(`chcp 65001 | generator.exe ${path}`, async (error, stdout, stderr) =>{
+			await exec(`chcp 65001 | generator.exe \"${path}\"`, async (error, stdout, stderr) =>{
 				if (error)
 					console.error(`error: ${error.message}`);
 				else if (stderr)
@@ -52,12 +52,3 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {}
-
-/*let doc = vscode.window.activeTextEditor?.document;
-if (doc && doc.languageId == "gentemp")
-{
-	vscode.commands.executeCommand("workbench.action.closeEditorsInOtherGroups")
-	.then(() => vscode.commands.executeCommand("markdown.showPreviewToSide", '# My extension'))
-	.then(() => {}, (e) => console.error(e));
-}*/
-//}
