@@ -2,7 +2,7 @@
 	"name": "gen-template-viewer",
 	"displayName": "gen_template_viewer",
 	"description": "simple viewer for task generator templates",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
@@ -22,30 +22,32 @@
 		],
 		"languages": [
 			{
-			  "id": "gentemp",
-			  "extensions": [".gentemp"]
+				"id": "gentemp",
+				"extensions": [
+					".gentemp"
+				]
 			}
-		  ],
-		  "grammars": [
+		],
+		"grammars": [
 			{
-			  "language": "gentemp",
-			  "scopeName": "source.gentemp",
-			  "path": "./syntaxes/gentemp.tmGrammar.json"
+				"language": "gentemp",
+				"scopeName": "source.gentemp",
+				"path": "./syntaxes/gentemp.tmGrammar.json"
 			}
-		  ],
-		  "snippets": [
+		],
+		"snippets": [
 			{
-			  "language": "gentemp",
-			  "path": "./snippets/snippets.json"
+				"language": "gentemp",
+				"path": "./snippets/snippets.json"
 			}
-		  ],
-		  "keybindings": [
-			{ 
+		],
+		"keybindings": [
+			{
 				"key": "ctrl+d",
 				"command": "extension.previewTemplate",
-				"when": "resourceExtname == .gentemp && editorTextFocus" 
+				"when": "resourceExtname == .gentemp && editorTextFocus"
 			}
-		  ]
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
