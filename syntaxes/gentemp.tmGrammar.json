@@ -35,7 +35,8 @@
         "patterns" : [
           { "include": "#object-param-function" },
           { "include": "#comma"},
-          { "include": "#object-param" }
+          { "include": "#object-param" },
+          { "include": "#object-param-substitution" }
         ]
       },
       "comma": {
@@ -47,7 +48,7 @@
         "name": "entity.name.type"
       },
       "object-param-substitution": {
-        "match": "@[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,^@]*@",
+        "match": "@[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,]*@",
         "name": "markup.italic"
       },
       "parentheses": {

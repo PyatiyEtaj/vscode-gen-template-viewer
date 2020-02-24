@@ -12,9 +12,9 @@ export function activate(context: vscode.ExtensionContext) {
 		if (doc && doc.languageId == "gentemp")
 		{
 			let path = (vscode.window.activeTextEditor?.document.uri.path ?? "");
-			if (path.length > 0 ) path = path.substr(1, path.length-1);
+			if (process.platform === "win32" && path.length > 0) path = path.substr(1, path.length-1);
 			//vscode.window.showInformationMessage(path);
-			let cmd = process.platform === "win32" ? `chcp 65001 | generator.exe \"${path}\"` : `generator \"${path}\"`;
+			let cmd = process.platform === "win32" ? `chcp 65001 | generator.exe \"${path}\"` : `Generator \"${path}\"`;
 			console.log(process.platform);
 			await exec(cmd, async (error, stdout, stderr) =>{
 				if (error)
