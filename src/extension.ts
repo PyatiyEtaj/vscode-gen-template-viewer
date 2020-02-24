@@ -14,7 +14,9 @@ export function activate(context: vscode.ExtensionContext) {
 			let path = (vscode.window.activeTextEditor?.document.uri.path ?? "");
 			if (path.length > 0 ) path = path.substr(1, path.length-1);
 			//vscode.window.showInformationMessage(path);
-			await exec(`chcp 65001 | generator.exe \"${path}\"`, async (error, stdout, stderr) =>{
+			let cmd = process.platform === "win32" ? `chcp 65001 | generator.exe \"${path}\"` : `generator \"${path}\"`;
+			console.log(process.platform);
+			await exec(cmd, async (error, stdout, stderr) =>{
 				if (error)
 					console.error(`error: ${error.message}`);
 				else if (stderr)
