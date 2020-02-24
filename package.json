@@ -2,7 +2,7 @@
 	"name": "gen-template-viewer",
 	"displayName": "gen_template_viewer",
 	"description": "simple viewer for task generator templates",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
@@ -71,7 +71,7 @@
 		"vscode-test": "^1.3.0"
 	},
 	"publisher": "PyatiyEtaj",
-	"repository": {		
+	"repository": {
 		"type": "git",
 		"url": "https://github.com/PyatiyEtaj/vscode-gen-template-viewer"
 	}
