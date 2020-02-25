@@ -46,18 +46,8 @@ export function activate(context: vscode.ExtensionContext) {
 		await vscode.commands.executeCommand('markdown.api.render', text).then(result => {
 			panel.webview.html = " " + result;
 		})
-	}	
-	vscode.extensions.onDidChange((e)=>{
-		vscode.window.showInformationMessage("Установка раширения");
-		let path = vscode.extensions.getExtension("pyatiyetaj.gen-template-viewer")?.extensionPath
-		if (path)
-		{
-			vscode.window.showInformationMessage("Ожидаем установки генератора");
-			let os  = process.platform === "win32" ? "win-x64" : "linux-x64";
-			exec(`cd ${path} | git clone https://github.com/PyatiyEtaj/Generator_for_vscode_extension | dotnet publish -c Release -r ${os} --self-contained=false`);
-			vscode.window.showInformationMessage("Последняя версия генератора успешно установлена");
-		}
-	});
+	}
+	
 	let disposable = vscode.commands.registerCommand(myCommandId, previewTemplate);
 	vscode.workspace.onDidSaveTextDocument((e : vscode.TextDocument) => previewTemplate());
 	context.subscriptions.push(disposable);
