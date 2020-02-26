@@ -12,7 +12,7 @@
       },
       "just-boxes": {
         "match": "ШАБЛОННЫЙ_ВИД|РЕШЕНИЕ",
-        "name": "markup.bold"
+        "name": "storage.type"
       },
       "types": {
         "match": "int|double",
@@ -20,16 +20,16 @@
       },
       "line-devider": {
         "match": "-----*\n",
-        "name": "markup.bold"
+        "name": "storage.type"
       },
       "rule-for-special-boxes": {
         "begin": "ХРАНИЛИЩЕ_ОБЪЕКТОВ|СЛУЖЕБНОЕ|ТЕСТОВЫЕ_ДАННЫЕ\n",
         "end": "-----*\n",
         "beginCaptures": {
-          "0": { "name": "markup.bold" }
+          "0": { "name": "storage.type" }
         },
         "endCaptures": {
-          "0": { "name": "markup.bold" }
+          "0": { "name": "storage.type" }
         },
         "contentName": "expression.group",
         "patterns" : [
@@ -45,16 +45,15 @@
       },
       "object-param": {
         "match": "[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,^@]*:",
-        "name": "entity.name.type"
+        "name": "entity.name.tag"
       },
       "object-param-substitution": {
-        "match": "@[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,]*@",
-        "name": "markup.italic"
+        "match": "@[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,^@]*(?<! )@",
+        "name": "string.regexp"
       },
       "parentheses": {
         "begin": "\\(",
         "end": "\\)",
-        "name": "entity.name.function",
         "patterns": [
           { "include": "#parentheses" },          
           { "include": "#types" },
@@ -64,7 +63,12 @@
       "object-param-function": {
         "begin": "(#rnd|#genAE|#getAEcode|#lua)\\(",
         "end": "\\)",
-        "name": "entity.name.function",
+        "beginCaptures": {
+          "0": { "name": "entity.name.function" }
+        },
+        "endCaptures": {
+          "0": { "name": "entity.name.function" }
+        },
         "patterns": [
           { "include": "#parentheses" },          
           { "include": "#types" },
