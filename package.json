@@ -2,7 +2,7 @@
 	"name": "gen-template-viewer",
 	"displayName": "gen_template_viewer",
 	"description": "simple viewer for task generator templates",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
