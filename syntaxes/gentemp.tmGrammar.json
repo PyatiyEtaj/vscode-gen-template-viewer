@@ -40,7 +40,7 @@
         ]
       },
       "comma": {
-        "match": "(?<!\\\\)[,|;]",
+        "match": "(?<!\\\\)[|;]",
         "name": "markup.bold"
       },
       "object-param": {

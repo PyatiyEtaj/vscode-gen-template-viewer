@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let panelIsCreated = false;
 	let needToCheckGenFolder = true;
 	let genBinariesPath = `${vscode.extensions.getExtension("pyatiyetaj.gen-template-viewer")?.extensionPath}\\generator_binaries`;
-	let generatorPath = `${genBinariesPath}\\Generator_for_vscode_extension`;
+	let generatorPath = `${genBinariesPath}\\Generator`;
 	const getGeneratorFromGit = async () =>{
 		if (!fs.existsSync(genBinariesPath))
 		{
