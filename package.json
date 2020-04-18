@@ -18,6 +18,10 @@
 			{
 				"command": "extension.previewTemplate",
 				"title": "preview template"
+			},			
+			{
+				"command": "extension.updateGen",
+				"title": "update generator binaries"
 			}
 		],
 		"languages": [
@@ -74,5 +78,10 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/PyatiyEtaj/vscode-gen-template-viewer"
+	},
+	"dependencies": {
+		"node-fetch": "^2.6.0",
+		"request": "^2.88.2",
+		"unzipper": "^0.10.10"
 	}
 }

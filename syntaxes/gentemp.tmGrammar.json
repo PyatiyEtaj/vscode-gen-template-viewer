@@ -61,7 +61,7 @@
         ]
       },
       "object-param-function": {
-        "begin": "(#rnd|#genAE|#getAEcode|#lua)\\(",
+        "begin": "(#[а-яА-Яa-zA-Z0-9_]{1}[^:^;^,^@]*)\\(",
         "end": "\\)",
         "beginCaptures": {
           "0": { "name": "entity.name.function" }
