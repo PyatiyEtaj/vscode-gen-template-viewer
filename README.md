@@ -8,12 +8,14 @@
 
  * Сниппит для инициализации работы : `start_template`
 
- * Предпросмотр шаблона : ввод комманды `preview template` или `ctrl+d`
+ * Предпросмотр шаблона : ввод комманды `GT: Preview template` или `ctrl+d`
+
+ * Получить бинарные файлы генератора для предпросмотра : ввод комманды `GT: Update generator binaries`
 
 ## Требования
 
-Для корректного предпросмотра необходим .NET Core 2.2+.
+.NET Core 3.0+ Runtime.
 
 ## Демонстрация
 
-![dedmonstration](/media/nicepic.png)
+![dedmonstration](/media/pic.JPG)

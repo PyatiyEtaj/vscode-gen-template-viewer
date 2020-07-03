@@ -1,7 +1,7 @@
 {
     "Start Tempalte": {
       "prefix": ["start_template"],
-      "body": ["----\nХРАНИЛИЩЕ_ОБЪЕКТОВ\nслуч : #rnd(0 , 100 , int);\n----\nШАБЛОННЫЙ_ВИД\nВот случайное число @случ@\n----\nРЕШЕНИЕ\n#include <cmath>\n#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n    cout << \"Hello world!\" << endl;\n    system(\"pause\");\n    return 0;\n}\n----\nСЛУЖЕБНОЕ\nзнаки_арифм : +| -| *| /;\nфункции_арифм : sin| cos| sqrt| log| log10;\n----\nТЕСТОВЫЕ_ДАННЫЕ\nтест1 : #rnd(10 , 200 , int , 10);\n----"],
+      "body": ["----\nХРАНИЛИЩЕ_ОБЪЕКТОВ\nслуч : #случайноеЦелое(0 , 100);\n----\nШАБЛОННЫЙ_ВИД\nВот случайное число @случ@\n----\nРЕШЕНИЕ\n#include <cmath>\n#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n    cout << \"Hello world!\" << endl;\n    system(\"pause\");\n    return 0;\n}\n----\nСЛУЖЕБНОЕ\nзнаки_арифм : +| -| *| / | ^;\nфункции_арифм : sin| cos| sqrt| tan| ln | log10;\n----\nТЕСТОВЫЕ_ДАННЫЕ\nтест1 : #случайноеЦелое(10 , 200, 10);\n----"],
       "description": "Создание стартового шаблона"
     }
   }

@@ -10,18 +10,24 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.previewTemplate"
+		"onCommand:extension.previewTemplate",
+		"onCommand:extension.updateGen",
+		"onCommand:extension.instruction"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "extension.previewTemplate",
-				"title": "preview template"
-			},			
+				"title": "GT: Preview template"
+			},
 			{
 				"command": "extension.updateGen",
-				"title": "update generator binaries"
+				"title": "GT: Update generator binaries"
+			},
+			{
+				"command": "extension.instruction",
+				"title": "GT: Template instruction"
 			}
 		],
 		"languages": [
@@ -49,6 +55,11 @@
 			{
 				"key": "ctrl+d",
 				"command": "extension.previewTemplate",
+				"when": "resourceExtname == .gentemp && editorTextFocus"
+			},			
+			{
+				"key": "F1",
+				"command": "extension.instruction",
 				"when": "resourceExtname == .gentemp && editorTextFocus"
 			}
 		]
