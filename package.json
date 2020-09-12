@@ -91,7 +91,7 @@
 		"url": "https://github.com/PyatiyEtaj/vscode-gen-template-viewer"
 	},
 	"dependencies": {
-		"node-fetch": "^2.6.0",
+		"node-fetch": "^2.6.1",
 		"request": "^2.88.2",
 		"unzipper": "^0.10.10"
 	}
